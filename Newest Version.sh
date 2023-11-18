@@ -1,2 +1,8 @@
 #!/bin/bash
-sudo -n apt-get update -y && sudo -n apt-get upgrade -y
+
+echo "Updating... this may take a couple minutes."
+sudo -n apt-get update -y > file.log
+echo "Successfully updated."
+echo "Upgrading... this may take a couple minutes."
+sudo -n apt-get upgrade -y > file.log
+echo "Successfully upgraded. Your device is now up to date."
