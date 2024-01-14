@@ -181,3 +181,7 @@ read -p "Do you want to clear the terminal? (y/n): " clear_terminal
 if [[ $clear_terminal == "y" ]]; then
   sudo clear
 fi
+# Enforce strong password policies
+sudo apt-get install libpam-pwquality -y
+sudo sed -i 's/password        requisite                       pam_pwquality.so retry=3/password        requisite                       pam_pwquality.so retry=3 minlen=12 ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1/' /etc/pam.d/common-password
+
